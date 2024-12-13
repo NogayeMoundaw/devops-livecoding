@@ -49,7 +49,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./simple-api
-          tags: ${{ secrets.DOCKER_USERNAME }}/tp-devops-simple-api:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/my-api:latest
           push: ${{ github.ref == 'refs/heads/main' }}
          
       # Build image and push database
@@ -57,7 +57,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./database
-          tags: ${{ secrets.DOCKER_USERNAME }}/tp-devops-database:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/my-db:latest
           push: ${{ github.ref == 'refs/heads/main' }}
 
       # Build image and push httpd
@@ -65,5 +65,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./http-server
-          tags: ${{ secrets.DOCKER_USERNAME }}/tp-devops-http-server:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/http-server:latest
           push: ${{ github.ref == 'refs/heads/main' }}
